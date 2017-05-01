@@ -9,8 +9,13 @@ var windows = chrome.windows;
 var runtime = chrome.runtime;
 var tabs = chrome.tabs;
 var i18n = chrome.i18n;
+var runtime = chrome.runtime;
 
 var ACTION_MENU_TOP_LEVEL_LIMIT = chrome.contextMenus.ACTION_MENU_TOP_LEVEL_LIMIT;
+
+// Tracker for the Google analytics we are going to consume
+var service = analytics.getService('workplace_app');
+var tracker = service.getTracker('UA-78074618-7');
 
 var contextItems = [
   { id: 'page', contexts: ['page'], title: i18n.getMessage('contextMenuSharePage'), document: true },
@@ -87,6 +92,7 @@ ContextMenu.prototype.onClicked = function (info, tab) {
   }
 
   sendShareMessage(tab.id, parsedInfo.link, parsedInfo.quote);
+  tracker.sendEvent('contextMenu', 'onClicked', info.menuItemId);
 }
 
 function BrowserAction () {
@@ -96,13 +102,22 @@ function BrowserAction () {
 BrowserAction.prototype.onClicked = function (tab) {
   var tabUrl = tab.url;
   sendShareMessage(tab.id, tabUrl)
+  tracker.sendEvent('browserAction', 'onClicked');
 }
 
 function sendShareMessage (tabId, url, quote) {
   tabs.sendMessage(tabId, { event: 'workplace.share', url: url, quote: quote });
 }
 
-runtime.onInstalled.addListener(function () {
+runtime.onInstalled.addListener(function (details) {
   var cm = new ContextMenu();
   var browserAction = new BrowserAction();
+  tracker.sendEvent('Installs', details.reason, details.previousVersion || undefined);
+});
+
+runtime.onMessage.addListener(function (message) {
+  console.log(message);
+  if (message.event === 'popup.open') {
+    tracker.sendEvent('Popup', 'open');
+  }
 });
