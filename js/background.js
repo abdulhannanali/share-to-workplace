@@ -113,11 +113,5 @@ runtime.onInstalled.addListener(function (details) {
   var cm = new ContextMenu();
   var browserAction = new BrowserAction();
   tracker.sendEvent('Installs', details.reason, details.previousVersion || undefined);
-});
-
-runtime.onMessage.addListener(function (message) {
-  console.log(message);
-  if (message.event === 'popup.open') {
-    tracker.sendEvent('Popup', 'open');
-  }
+  runtime.setUninstallURL('https://hannanali.tech/share-to-workplace/uninstall.html')
 });
