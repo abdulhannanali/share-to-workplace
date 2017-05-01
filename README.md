@@ -17,11 +17,5 @@ Some of the things, we are definitely planning on to build in the future include
 - Improve the modularization within the code, so it's easier for us to remake the extensions
 - Add a better build system, so we can build the code easily
 
-#### Why using analytics?
-
-We don't copy any data that can identify the content the user is sharing, the user itself, or the organization. However,
-Workplace doesn't allow us to issue an `appId` like what Facebook does. This can help us in gathering analytics, but
-this feature isn't available unfortunately. When we add analytics, we are going to be totally fair with what we do!
-
 ## LICENSE
 MIT LICENSE. See [LICENSE](LICENSE) for more details. :heart:
