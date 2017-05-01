@@ -11,6 +11,13 @@
     "message": "Share text as quote to Workplace",
     "description": "This message is shown when the context menu is displayed and text is selected."
   },
+  "contextMenuShareMedia": {
+    "message": "Share this media to Workplace",
+    "description": "This message is shown when the context menu is displayed by right clicking on a media"
+  },
+  "contextMenuShareLink": {
+    "message": "Share this link to Workplace"
+  },
   "optionsPageUpdateSaved": {
     "message": "Options saved",
     "description": "This message is shown when the user updates any of their custom options in the options page."

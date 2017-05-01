@@ -15,9 +15,13 @@
   },
   "background": {
     "scripts": [
-      "background.js"
-    ]
+      "js/background.js"
+    ],
+    "persistent": false
   },
+  "content_scripts": [
+    {"js": ["js/content.js"], "matches": ["http://*/*", "https://*/*"]}
+  ],
   "permissions": [
     "tabs",
     "contextMenus"
