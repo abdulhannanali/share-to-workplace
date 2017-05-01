@@ -15,15 +15,23 @@
   },
   "background": {
     "scripts": [
+      "js/google-analytics-bundle.js",
       "js/background.js"
     ],
     "persistent": false
   },
   "content_scripts": [
-    {"js": ["js/content.js"], "matches": ["http://*/*", "https://*/*"]}
+    {
+      "js": ["js/content.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_start"
+    }
   ],
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "permissions": [
+    "https://google-analytics.com/*",
     "tabs",
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ]
 }
