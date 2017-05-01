@@ -7,7 +7,6 @@
 var contextMenus = chrome.contextMenus;
 var windows = chrome.windows;
 var runtime = chrome.runtime;
-var i18n = chrome.i18n;
 var tabs = chrome.tabs;
 
 var ACTION_MENU_TOP_LEVEL_LIMIT = chrome.contextMenus.ACTION_MENU_TOP_LEVEL_LIMIT;

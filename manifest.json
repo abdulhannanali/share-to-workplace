@@ -15,8 +15,6 @@
   },
   "background": {
     "scripts": [
-      "js/axios.min.js",
-      "js/analytics.js",
       "js/background.js"
     ],
     "persistent": false
