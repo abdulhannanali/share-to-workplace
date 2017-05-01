@@ -8,6 +8,7 @@ var contextMenus = chrome.contextMenus;
 var windows = chrome.windows;
 var runtime = chrome.runtime;
 var tabs = chrome.tabs;
+var i18n = chrome.i18n;
 
 var ACTION_MENU_TOP_LEVEL_LIMIT = chrome.contextMenus.ACTION_MENU_TOP_LEVEL_LIMIT;
 
@@ -78,7 +79,7 @@ ContextMenu.prototype.parseContext = function (info) {
 }
 
 ContextMenu.prototype.onClicked = function (info, tab) {
-  const parsedInfo =  this.parseContext(info);
+  var parsedInfo =  this.parseContext(info);
 
   if (!parsedInfo.link) {
     console.error('a link is required to be passed for Workplace share dialog')
