@@ -1,6 +1,6 @@
 {
   "name": "share-to-workplace",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Chrome Extension to Share urls to workplace",
   "main": "background.js",
   "repository": "git@github.com:abdulhannanali/share-to-workplace.git",

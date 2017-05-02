@@ -1,7 +1,7 @@
 {
   "name": "__MSG_extensionName__",
   "manifest_version": 2,
-  "version": "1.0.0",
+  "version": "1.2.0",
   "default_locale": "en_US",
   "browser_action": {
     "default_icon": "icons/Icon.png"
