@@ -4,16 +4,12 @@ Share to Workplace is a chrome extension which makes it easy for you to share th
 web to your workplace account. This extension will take you to the Workplace organization you were most
 recently active in within this session.
 
-## Creating dedicated extension for your organization's use
-You want an extension and don't want this figuring out to happen, as it requires you to first load
-some other subdomain. You can get one especially catered for your needs with your logo and takes you directly
-to your workplace, giving a sense of ownness and full Company experience. You can get in touch with me at 
-**ali.abdulhannan@gmail.com**
+## Analytics
+This application using analytics to track anonymous non PII data about the users interactions. We don't track any of your personal activity such as which links you share and to which workplace. 
 
 ### Future todos
 Some of the things, we are definitely planning on to build in the future include:
 - Options Page
-- Minimal Analytics (so we can see what is working for users and what's not )
 - Improve the modularization within the code, so it's easier for us to remake the extensions
 - Add a better build system, so we can build the code easily
 
