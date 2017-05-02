@@ -10,13 +10,29 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      var href = window.location.href;
+      var vMatch = href.match(/version=(.*)[&?]?/);
 
       ga('create', 'UA-78074618-7', 'auto');
       ga('send', 'pageview', {
-        'hitCallback': function () {
-          window.close();
+        hitCallback: function () {
+          if (!vMatch) {
+            window.close();
+          }
         }
       });
+
+      if (vMatch && vMatch[1]) {
+        ga('send', 'event', 'Uninstalls', 'version', vMatch[1], {
+          hitCallback: function () {
+            window.close();
+          }
+        });
+      }
+
+      // Close after timing out even if the hit has not been sent or processed 
+      // successfully, otherwise, we'll ruin the user experience
+      window.setTimeout(function () { window.close(); }, 3000)
     </script>
   </body>
 </html>

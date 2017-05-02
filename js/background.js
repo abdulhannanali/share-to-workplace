@@ -112,6 +112,10 @@ function sendShareMessage (tabId, url, quote) {
 runtime.onInstalled.addListener(function (details) {
   var cm = new ContextMenu();
   var browserAction = new BrowserAction();
+  var manifest = runtime.getManifest();
+  var installedAt = Date.now();
+  var uninstallURL = 'https://hannanali.tech/share-to-workplace/uninstall.html?version=' + manifest.version
+
   tracker.sendEvent('Installs', details.reason, details.previousVersion || undefined);
-  runtime.setUninstallURL('https://hannanali.tech/share-to-workplace/uninstall.html')
+  runtime.setUninstallURL(uninstallURL);
 });
